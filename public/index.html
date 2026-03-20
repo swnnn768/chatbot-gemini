@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Assistant</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="chat-shell">
+        <header class="topbar">
+          <div class="brand-block">
+            <p class="eyebrow">Assistant IA</p>
+            <h1>Jeck Assistant</h1>
+            <p class="caption"> propulsé avec Gemini</p>
+          </div>
+
+          <div class="topbar-actions">
+            <span id="userStatus" class="user-pill">Invité</span>
+
+            <button
+              id="accountBtn"
+              class="action-btn"
+              type="button"
+              aria-label="Ouvrir le compte"
+            >
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M20 21C20 17.6863 16.4183 15 12 15C7.58172 15 4 17.6863 4 21"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="8"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                </svg>
+              </span>
+              <span>Compte</span>
+            </button>
+            <button id="clearBtn" class="secondary-btn" type="button">
+              Effacer
+            </button>
+          </div>
+        </header>
+
+        <section id="messages" class="messages" aria-live="polite"></section>
+
+        <form id="chatForm" class="composer">
+          <input
+            id="messageInput"
+            type="text"
+            maxlength="3000"
+            placeholder="Écris ton message..."
+            autocomplete="off"
+          />
+
+          <div class="composer-actions">
+            <span class="hint">Entrée pour envoyer</span>
+            <button id="sendBtn" class="primary-btn" type="submit">
+              Envoyer
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <div id="uiOverlay" class="ui-overlay is-hidden"></div>
+
+    <aside id="accountDrawer" class="drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <div>
+          <p class="modal-eyebrow">Compte</p>
+          <h2>Espace utilisateur</h2>
+        </div>
+
+        <button id="closeAccountDrawer" class="icon-btn" type="button">
+          ✕
+        </button>
+      </div>
+
+      <div id="loggedInView" class="account-box is-hidden">
+        <p class="account-title">Vous êtes connecté</p>
+        <p class="account-text">
+          Bienvenue <strong id="accountName"></strong><br />
+          <span id="accountEmail"></span>
+        </p>
+
+        <button id="logoutBtn" class="primary-btn danger-btn full-btn" type="button">
+          Se déconnecter
+        </button>
+      </div>
+
+      <div id="guestAuthView">
+        <div class="tab-switch">
+          <button id="showLoginTab" class="tab-btn active" type="button">
+            Connexion
+          </button>
+          <button id="showRegisterTab" class="tab-btn" type="button">
+            Inscription
+          </button>
+        </div>
+
+        <div id="loginPanel" class="auth-panel">
+          <form id="loginForm" class="form-stack">
+            <label class="field">
+              <span>Email</span>
+              <input
+                id="loginEmail"
+                type="email"
+                placeholder="exemple@mail.com"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>Mot de passe</span>
+              <input
+                id="loginPassword"
+                type="password"
+                placeholder="••••••••"
+                required
+              />
+            </label>
+
+            <button class="primary-btn full-btn" type="submit">
+              Se connecter
+            </button>
+          </form>
+        </div>
+
+        <div id="registerPanel" class="auth-panel is-hidden">
+          <form id="registerForm" class="form-stack">
+            <label class="field">
+              <span>Nom complet</span>
+              <input
+                id="registerName"
+                type="text"
+                placeholder="Ton nom"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>Email</span>
+              <input
+                id="registerEmail"
+                type="email"
+                placeholder="exemple@mail.com"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>Mot de passe</span>
+              <input
+                id="registerPassword"
+                type="password"
+                placeholder="8 caractères minimum"
+                required
+              />
+            </label>
+
+            <button class="primary-btn full-btn" type="submit">
+              Créer un compte
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <p id="authMessage" class="feedback"></p>
+    </aside>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "4f40a19e-1369-4943-a6ca-ff74daef54b0",
+      "name": "swn",
+      "email": "sawwan.akrour06@gmail.com",
+      "passwordHash": "01f2d6a744b7821502b7f5504de3fca2:96dc982effb75549052a38c85ab7d28b133bb7e3f12098cee673f343009fa3692dae7fcb636745a39dc4b6470fbeeff8db6149dc2d10fa3be0917d7dd7af7015",
+      "createdAt": "2026-03-20T10:00:44.901Z"
+    }
+  ]
+}
